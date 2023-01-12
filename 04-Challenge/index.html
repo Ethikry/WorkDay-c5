@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../public/output.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Coding Quiz</title>
+  </head>
+  <body class="bg-gradient-to-r from-cyan-500 to-blue-500">
+    <header>
+      <div class="relative h-32 w-full">
+        <div class="absolute left-0 top-0 h-16">
+          <button id="hiscores_btn">View High-Scores</button>
+        </div>
+        <div class="absolute right-0 top-0 h-16">
+          <p class="top-0 right-0" id="timer">Time left: 60 seconds</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="home_page">
+        <div>
+          <h1 class="text-5xl font-extrabold text-center">Coding Quiz Challenge</h1>
+
+          <h2 class="text-xl font-light text-center justify-center p-8">
+            Answer the following code-related questions. You will have 60
+            seconds to answer 8 questions. If you answer incorrectly, time will
+            be subtracted. The game will end when you either run out of time or
+            answer all of the questions. Score is calculated by 10 points per
+            correct answer + 1 point per second left on the timer.
+          </h2>
+          <div class="flex flex-col items-center">
+            <button class="w-28 h-8 text-center bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded" id="start_btn">Start Quiz</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="questions_page">
+        <div>
+          <ul>
+            <li>
+              <button class="choice_btn" id="answer_btn1" value="a"></button>
+            </li>
+
+            <li>
+              <button class="choice_btn" id="answer_btn2" value="b"></button>
+            </li>
+
+            <li>
+              <button class="choice_btn" id="answer_btn3" value="c"></button>
+            </li>
+
+            <li>
+              <button class="choice_btn" id="answer_btn4" value="d"></button>
+            </li>
+          </ul>
+        </div>
+
+        <div id="check_answer"></div>
+      </section>
+
+      <section id="submit_page">
+        <div>
+          <p id="end_quiz">Quiz Finished!</p>
+          <p id="score">Your score is: </p>
+          <p>Enter initials: </p>
+          <input id="initials">
+          <button id="submit_btn">Submit score</button>
+        </div>
+      </section>
+
+      <section id="hiscore_page">
+        <div>
+          <h2>High-Scores</h2>
+          <div id="record">
+            <p>
+                Your score
+            </p>
+          </div>
+          <button id="home_btn">To home page</button>
+          <button id="clear_scores_btn">Clear high-scores</button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>Made by Ethan Gayton</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

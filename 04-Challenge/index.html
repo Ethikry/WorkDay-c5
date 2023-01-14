@@ -121,8 +121,8 @@
 
       <section id="submit_page" style="display: none">
         <div class="text-center">
-          <p class="text-center font-bold py-2" id="end_quiz">Quiz Finished!</p>
-          <p class="text-center py-2">Your score is: <span id="score"></span>.</p>
+          <h2 class="text-center font-bold py-2" id="end_quiz">Quiz Finished!</h2>
+          <p class="text-center py-2">Your score is <span id="score">fill</span>.</p>
           <p class="text-center py-2">Enter initials:</p>
           <input id="initials" /> <br>
           <button
@@ -136,7 +136,8 @@
 
       <section id="hiscore_page" style="display: none">
         <div class="text-center">
-          <h2>High-Scores</h2>
+          <h2 class="font-bold">High-Scores</h2>
+          <p id="display_initials">IN <span id="display_num">SC</span></p>
           <div id="record">
             <p>Your score</p>
           </div>

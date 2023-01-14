@@ -134,9 +134,7 @@ function displayQuestions() {
       var label = document.getElementsByTagName("label")[i];
       label.innerText = questions[questionNumber].choices[i];
     }
-    console.log(questionNumber);
     questionNumber++;
-    console.log("After increment question number: " + questionNumber);
   } else {
     clearInterval(interval);
     quizStop();
@@ -193,66 +191,26 @@ function quizStop() {
   questionsPage.style.display = "none";
   submitPage.style.display = "block";
   userScore += seconds;
-  console.log(userScore);
+  score.innerText = userScore;
 }
 
 function displayScore() {
+  displayInitials = document.querySelector("#display_initials");
+  displayNum = document.querySelector("#display_num");
   submitPage.style.display = "none";
   hiScorePage.style.display = "block";
-  score.innerHTML = userScore;
-
-  let username = initials.value;
-  let newScore = {username, userScore}
-
-  console.log(userScore);
-  console.log(score);
+  displayInitials.innerText = initials.value;
+  displayNum.innerText = userScore;
 }
 
 function displayHome() {
   hiScorePage.style.display = "none";
   homePage.style.display = "block";
   seconds = 60;
-  timer = seconds;
+  timer.innerHTML = seconds;
 }
 //Event listeners
 startBtn.addEventListener("click", quizStart);
 nextQuestionBtn.addEventListener("click", displayQuestions);
 submitBtn.addEventListener("click", displayScore);
 homeBtn.addEventListener("click", displayHome);
-
-
-function checkHighScore(score) {
-    const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
-    const lowestScore = highScores[NO_OF_HIGH_SCORES-1]?.score ?? 0;
-    
-    if (score > lowestScore) {
-      saveHighScore(score, highScores); // TODO
-      showHighScores(); // TODO
-    }
-  }
-
-  function saveHighScore(score, highScores) {
-    const name = prompt('You got a highscore! Enter name:');
-    const newScore = { score, name };
-    
-    // 1. Add to list
-    highScores.push(newScore);
-  
-    // 2. Sort the list
-    highScores.sort((a, b) => b.score - a.score);
-    
-    // 3. Select new list
-    highScores.splice(NO_OF_HIGH_SCORES);
-    
-    // 4. Save to local storage
-    localStorage.setItem(HIGH_SCORES, JSON.stringify(highScores));
-  };
-
-  function showHighScores() {
-    const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
-    const highScoreList = document.getElementById(HIGH_SCORES);
-    
-    highScoreList.innerHTML = highScores
-      .map((score) => `<li>${score.score} - ${score.name}`)
-      .join('');
-  }
